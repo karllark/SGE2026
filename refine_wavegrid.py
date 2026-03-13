@@ -157,7 +157,7 @@ if __name__ == "__main__":
     otab["ext"] = Qext
     otab["albedo"] = albedo
     otab["g"] = g
-    otab.write("new_sge_mw_empir_props.dat", format="ascii.commented_header", overwrite=True)
+    otab.write("sge2026_mw_empir_props.dat", format="ascii.commented_header", overwrite=True)
 
     if args.png:
         fig.savefig(f"{save_str}.png")

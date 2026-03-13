@@ -4,7 +4,7 @@ if __name__ == "__main__":
     ggeom = "dusty"
     lgeom = "h"
     dtype = "mw"
-    cfile = "sge_dusty_homo.param"
+    cfile = f"sge2026_{ggeom}_{lgeom}_{dtype}.param"
 
     with open(cfile, 'r') as file:
         lines_list = [line.rstrip('\n') for line in file]
