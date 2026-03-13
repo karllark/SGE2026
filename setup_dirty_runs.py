@@ -27,7 +27,7 @@ if __name__ == "__main__":
 
                 for ctau in taus:
                     ofilebase = f"{ggeom}/sge2026_{ggeom}_{lgeom}_{dtype}_tau{ctau:.4f}"
-                    batchlines.append(f"./dirty {ofilebase}.param >& {ofilebase}.log")
+                    batchlines.append(f"nice -n 19 ./dirty {ofilebase}.param >& {ofilebase}.log")
                     with open(f"{ofilebase}.param", 'w') as file:
                         for cline in lines_list:
                             if "tau=" in cline:
