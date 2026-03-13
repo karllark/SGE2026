@@ -30,12 +30,12 @@ grid_size=15
 
 [Dust Grains]
 type=multi_wavelength
-file=new_sge_mw_empir_props.dat
+file=sge2026_fA1.00_empir_props.dat
 
 [Run]
 num_photons=100000
 output_image_size=100
-output_filebase=SGE_2026/dusty/sge2026_dusty_h_mw_tau1.5
+output_filebase=SGE_2026/dusty/sge2026_dusty_h_fA1.00_tau1.5
 do_global_output=1
 do_image_output=0
 verbose=1
