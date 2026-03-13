@@ -1,5 +1,5 @@
-# Parameter file for SGE Dusty homogeneous case (Witt & Gordon 2000)
-#  DUSTY = dust in shell from 0 to 1.0, stars from 0 to 1
+# Parameter file for SGE Dusty homogeneous case (Witt & Gordon)
+#  SHELL = dust in shell from 0.3 to 1.0, stars from 0 to 0.3
 #
 # Model parameters
 [Geometry]
@@ -11,11 +11,16 @@ randomize_observer=1
 # photon sources
 source_type=pow_sphere
 pow_sphere_exponent=0.
-pow_sphere_inner_radius=0.
-pow_sphere_outer_radius=1.0
+pow_sphere_inner_radius=0.0
+pow_sphere_outer_radius=0.3
 # dust geometry
-type=sphere
+type=shell
 radius=1.0
+very_inner_radius=0.3
+inner_radius=0.3
+outer_radius=1.0
+subdivide_radius=0.
+shell_density_poly=0.
 # radial optical depth
 tau=1.5
 # filling factor & density control the clumpiness
@@ -35,7 +40,7 @@ file=sge2026_fA1.00_empir_props.dat
 [Run]
 num_photons=100000
 output_image_size=100
-output_filebase=dusty/sge2026_dusty_h_fA1.00_tau1.5
+output_filebase=shell/sge2026_shell_h_fA1.00_tau1.5
 do_global_output=1
 do_image_output=0
 verbose=1
