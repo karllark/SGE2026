@@ -1,10 +1,11 @@
 if __name__ == "__main__":
 
-    
     ggeoms = ["dusty", "shell", "cloudy"]
     geoms = ["h", "c"]
     geomnums = [1.0, 0.01]
     fAs = [0.0, 0.25, 0.5, 0.75, 1.0]
+
+    allbatch = []
 
     for ggeom in ggeoms:
         for lgeom, lgeomnum in zip(geoms, geomnums):
@@ -42,6 +43,14 @@ if __name__ == "__main__":
                             file.write(f"{cline}\n")
 
                 # write batch file
-                with open(f"{ggeom}_{lgeom}_{dtype}.batch", "w") as file:
+                bfile = f"{ggeom}_{lgeom}_{dtype}.batch"
+                with open(bfile, "w") as file:
                     for cline in batchlines:
                         file.write(f"{cline}\n")
+                allbatch.append(f"source {bfile} &")
+
+    # write all batch file
+    bfile = "sge2026_all.batch"
+    with open(bfile, "w") as file:
+        for cline in allbatch:
+            file.write(f"{cline}\n")
