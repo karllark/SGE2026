@@ -36,7 +36,7 @@ if __name__ == "__main__":
                             elif "density_ratio=" in cline:
                                 cline = "density_ratio={lgeonnum:.2f}"
                             elif "file=" in cline:
-                                dprop = f"sge2026_{ggeom}_{lgeom}_fA{cfA:.2f}.param"
+                                dprop = f"sge2026_fA{cfA:.2f}_empir_props.dat"
                                 cline = f"file={dprop}"
                             elif "output_filebase=" in cline:
                                 cline = f"output_filebase={ofilebase}"
