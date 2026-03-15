@@ -34,7 +34,7 @@ if __name__ == "__main__":
                             if "tau=" in cline:
                                 cline = f"tau={ctau}"
                             elif "density_ratio=" in cline:
-                                cline = f"density_ratio={lgeonnum:.2f}"
+                                cline = f"density_ratio={lgeomnum:.2f}"
                             elif "file=" in cline:
                                 dprop = f"sge2026_fA{cfA:.2f}_empir_props.dat"
                                 cline = f"file={dprop}"
