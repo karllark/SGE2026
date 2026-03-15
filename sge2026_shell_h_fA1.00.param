@@ -27,7 +27,7 @@ tau=1.5
 filling_factor=0.05
 density_ratio=1.0
 # this controls how to subdivide cells
-max_tau_per_cell=50.0
+max_tau_per_cell=50000.0
 # spherical or cubical clumps [choices are sphere/cube]
 clump_type=cube
 # size of grid (all dimensions equal)
@@ -38,7 +38,7 @@ type=multi_wavelength
 file=sge2026_fA1.00_empir_props.dat
 
 [Run]
-num_photons=100000
+num_photons=1000000
 output_image_size=100
 output_filebase=shell/sge2026_shell_h_fA1.00_tau1.5
 do_global_output=1
