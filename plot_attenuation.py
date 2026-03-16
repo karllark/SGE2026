@@ -78,9 +78,13 @@ if __name__ == "__main__":
         ax.plot(wave, dtab["tau_norm"] * ctau, "k-", label="Extinction curve")
         axes[i, 1].plot(wave, dtab["tau_norm"], "k-", label="Extinction curve")
 
+        if args.wavenum:
+            xlabel = r"$1/\lambda$ [$\mu$m$^{-1}$]"
+        else:
+            xlabel = r"$\lambda$ [$\mu$m]"
         if i == 2:
-            ax.set_xlabel(r"$\lambda$ [$\mu$m]")
-            axes[i, 1].set_xlabel(r"$\lambda$ [$\mu$m]")
+            ax.set_xlabel(xlabel)
+            axes[i, 1].set_xlabel(xlabel)
         ax.set_ylabel(r"$\tau_\mathrm{att}$")
         axes[i, 1].set_ylabel(r"$\tau_\mathrm{att}/\tau_\mathrm{att,V}$")
 
