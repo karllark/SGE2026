@@ -1,6 +1,8 @@
+import warnings
 import numpy as np
 import matplotlib.pyplot as plt
 from astropy.table import Table
+import astropy.units as u
 
 from dust_extinction.averages import G03_SMCBar, G24_SMCAvg
 
@@ -33,7 +35,9 @@ if __name__ == "__main__":
         for cgeom, ccol in zip(geoms, cols):
             for clgeom, cline in zip(lgeoms, lines):
                 fname = f"sge2026_{cgeom}_{clgeom}_{dusttype}_tau{ctau:.4f}_global_lum.table.fits"
-                dtab = Table.read(f"{cgeom}/{fname}")
+                with warnings.catch_warnings():
+                    warnings.simplefilter("ignore", category=u.UnitsWarning)
+                    dtab = Table.read(f"{cgeom}/{fname}")
                 wave = 1.0 / dtab["wavelength"].value
                 tauatt = -1.0 * np.log(dtab["Flux"] / dtab["Flux_Input"])
                 tauatt_direct = -1.0 * np.log(dtab["Flux_rt_d"] / dtab["Flux_Input"])
