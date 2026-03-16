@@ -293,8 +293,8 @@ if __name__ == "__main__":
 
     save_str = ofilename.replace(".dat", "")
     if args.png:
-        fig.savefig(f"{save_str}.png")
+        fig.savefig(f"figs/{save_str}.png")
     elif args.pdf:
-        fig.savefig(f"{save_str}.pdf")
+        fig.savefig(f"figs/{save_str}.pdf")
     else:
         plt.show()
