@@ -106,9 +106,24 @@ if __name__ == "__main__":
     smcext = G24_SMCAvg()
     smcext.x_range = [0.3, 1/0.0912]
     gvals = nwave < 3.0 * u.micron
+    Qext1_wave = nwave[gvals]
     Qext1 = smcext(nwave[gvals])
-    gvals = nwave >= 3.0 * u.micron
+    gvals = nwave >= 1.0 * u.micron
+    Qext2_wave = nwave[gvals]
     Qext2 = mwext(nwave[gvals])
+
+    # determine the averages between the two
+    gvals1 = (Qext1_wave > 1.0 * u.micron)
+    ave1 = np.average(Qext1[gvals1])
+    gvals2 = (Qext2_wave < 3.0 * u.micron)
+    ave2 = np.average(Qext2[gvals2])
+
+    # re-normalize the MW curve to match the SMC curve
+    gvals = nwave >= 3.0 * u.micron
+    Qext2_wave = nwave[gvals]
+    Qext2 = mwext(nwave[gvals])
+    Qext2 = (ave1 / ave2) * Qext2
+
     Qext = np.concatenate([Qext1, Qext2])
     cs = CubicSpline(dtab_smc["wave"], dtab_smc["albedo"])
     albedo = cs(nwave)
