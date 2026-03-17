@@ -26,7 +26,7 @@ max_tau_per_cell=50000.0
 # spherical or cubical clumps [choices are sphere/cube]
 clump_type=cube
 # size of grid (all dimensions equal)
-grid_size=15
+grid_size=30
 
 [Dust Grains]
 type=multi_wavelength

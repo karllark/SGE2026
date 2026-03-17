@@ -31,7 +31,7 @@ if __name__ == "__main__":
     plt.rc("ytick.major", width=2)
     plt.rc("ytick.minor", width=2)
 
-    fig, axes = plt.subplots(ncols=2, nrows=3, figsize=(10.0, 12.0), sharex=True)
+    fig, axes = plt.subplots(ncols=2, nrows=3, figsize=(12.0, 12.0), sharex=True)
 
     taus = [0.5, 1.5, 4.5]
     geoms = ["dusty", "shell", "cloudy"]
@@ -100,11 +100,13 @@ if __name__ == "__main__":
             axes[i, 1].set_yscale("log")
 
         if i == 0:
-            ax.legend(ncols=2, fontsize=0.45 * fontsize)
+            ax.legend(ncols=2, fontsize=0.6 * fontsize)
+
+    fig.suptitle(f"DIRTY SGE2026 $f_A$={args.fA:.2f}")
 
     plt.tight_layout()
 
-    save_str = "figs/sge2026_atten_examples_fA{fA:.2f}"
+    save_str = f"figs/sge2026_atten_examples_fA{args.fA:.2f}"
     if args.wavenum:
         save_str = f"{save_str}_wavenum"
     if args.png:
